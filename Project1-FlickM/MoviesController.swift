@@ -8,6 +8,7 @@
 
 import UIKit
 import AFNetworking
+import MBProgressHUD
 
 class MoviesController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -22,6 +23,20 @@ class MoviesController: UIViewController, UITableViewDelegate, UITableViewDataSo
         MoviesTableView.dataSource = self
         MoviesTableView.delegate = self
         
+        
+        // Initialize a UIRefreshControl
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+        MoviesTableView.insertSubview(refreshControl, atIndex: 0)
+        
+        // Display HUD right before next request is made
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        
+        //Call the endpoint to get all the movies
+        makeAPICall()
+    }
+    
+    func makeAPICall() {
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
         let url = NSURL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
         let request = NSURLRequest(URL: url!)
@@ -42,8 +57,21 @@ class MoviesController: UIViewController, UITableViewDelegate, UITableViewDataSo
                     }
                 }
                 
+                // Hide HUD once network request comes back (must be done on main UI thread)
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
         });
         task.resume()
+    }
+    
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        
+        // Make API call to fetch all the movies data
+        makeAPICall()
+        
+        // Do the following when the network request comes back successfully:
+        // Update tableView data source
+        self.MoviesTableView.reloadData()
+        refreshControl.endRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
