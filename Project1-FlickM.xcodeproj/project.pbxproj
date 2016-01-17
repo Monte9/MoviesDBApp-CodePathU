@@ -80,10 +80,10 @@
 		FAFD9B9E1C4B55E2004021BD /* Project1-FlickM */ = {
 			isa = PBXGroup;
 			children = (
-				FAFD9BD11C4B6EF2004021BD /* Views */,
 				FAFD9B9F1C4B55E2004021BD /* AppDelegate.swift */,
-				FAFD9BB11C4B57B5004021BD /* MoviesController.swift */,
 				FAFD9BA31C4B55E2004021BD /* Main.storyboard */,
+				FAFD9BD41C4B7C05004021BD /* Controller */,
+				FAFD9BD11C4B6EF2004021BD /* Views */,
 				FAFD9BA61C4B55E2004021BD /* Assets.xcassets */,
 				FAFD9BA81C4B55E2004021BD /* LaunchScreen.storyboard */,
 				FAFD9BAB1C4B55E2004021BD /* Info.plist */,
@@ -97,6 +97,14 @@
 				FAFD9BD21C4B6F1B004021BD /* MovieCell.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		FAFD9BD41C4B7C05004021BD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FAFD9BB11C4B57B5004021BD /* MoviesController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

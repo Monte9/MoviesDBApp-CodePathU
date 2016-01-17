@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class MoviesController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -36,17 +37,13 @@ class MoviesController: UIViewController, UITableViewDelegate, UITableViewDataSo
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
                         data, options:[]) as? NSDictionary {
                             NSLog("response: \(responseDictionary)")
-                            self.movies = responseDictionary["results"] as! [NSDictionary]
+                            self.movies = responseDictionary["results"] as? [NSDictionary]
                             self.MoviesTableView.reloadData()
                     }
                 }
                 
         });
         task.resume()
-        
-       
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,12 +59,15 @@ class MoviesController: UIViewController, UITableViewDelegate, UITableViewDataSo
         let cell = tableView.dequeueReusableCellWithIdentifier("MovieCell", forIndexPath: indexPath) as! MovieCell
         
         let movie = movies![indexPath.row]
-            
-        cell.titleLabel.text = movie["title"] as! String
-        cell.overviewLabel.text = movie["overview"] as! String
+        
+        cell.titleLabel.text = movie["title"] as? String
+        cell.overviewLabel.text = movie["overview"] as? String
 
-//        cell.textLabel?.text = "row\(indexPath.row)"
-//        print("row\(indexPath.row)")
+        let baseImageURL = "http://image.tmdb.org/t/p/w500/"
+        let imagePath = movie["poster_path"] as! String
+        let imageURL = NSURL(string: baseImageURL + imagePath)
+        
+        cell.posterImage.setImageWithURL(imageURL!)
         
         return cell
     }
