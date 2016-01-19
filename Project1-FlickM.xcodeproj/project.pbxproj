@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		38EC3D8B72222898E22ECC6E /* Pods_Project1_FlickM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C3C5DE6640992807AD43A7C /* Pods_Project1_FlickM.framework */; };
+		FA849EC71C4DB96900FAA3F9 /* MovieInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA849EC61C4DB96900FAA3F9 /* MovieInfoViewController.swift */; };
 		FAFD9BA01C4B55E2004021BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD9B9F1C4B55E2004021BD /* AppDelegate.swift */; };
 		FAFD9BA51C4B55E2004021BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFD9BA31C4B55E2004021BD /* Main.storyboard */; };
 		FAFD9BA71C4B55E2004021BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFD9BA61C4B55E2004021BD /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		015FD6C9B898C0C0B5640AC0 /* Pods-Project1-FlickM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project1-FlickM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project1-FlickM/Pods-Project1-FlickM.debug.xcconfig"; sourceTree = "<group>"; };
 		5C3C5DE6640992807AD43A7C /* Pods_Project1_FlickM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project1_FlickM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E7EF69E4F16340491FABC55 /* Pods-Project1-FlickM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project1-FlickM.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project1-FlickM/Pods-Project1-FlickM.release.xcconfig"; sourceTree = "<group>"; };
+		FA849EC61C4DB96900FAA3F9 /* MovieInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieInfoViewController.swift; sourceTree = "<group>"; };
 		FAFD9B9C1C4B55E2004021BD /* Project1-FlickM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project1-FlickM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFD9B9F1C4B55E2004021BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAFD9BA41C4B55E2004021BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				FAFD9BB11C4B57B5004021BD /* MoviesController.swift */,
+				FA849EC61C4DB96900FAA3F9 /* MovieInfoViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				FAFD9BB21C4B57B5004021BD /* MoviesController.swift in Sources */,
 				FAFD9BA01C4B55E2004021BD /* AppDelegate.swift in Sources */,
 				FAFD9BD31C4B6F1B004021BD /* MovieCell.swift in Sources */,
+				FA849EC71C4DB96900FAA3F9 /* MovieInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
