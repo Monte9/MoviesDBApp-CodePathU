@@ -15,6 +15,7 @@ class MoviesController: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var MoviesTableView: UITableView!
     
     var movies: [NSDictionary]?
+    var endPoint : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,7 @@ class MoviesController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     func makeAPICall() {
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        let url = NSURL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
+        let url = NSURL(string:"https://api.themoviedb.org/3/movie/\(endPoint)?api_key=\(apiKey)")
         let request = NSURLRequest(URL: url!)
         let session = NSURLSession(
             configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
@@ -51,7 +52,7 @@ class MoviesController: UIViewController, UITableViewDelegate, UITableViewDataSo
                 if let data = dataOrNil {
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
                         data, options:[]) as? NSDictionary {
-                            NSLog("response: \(responseDictionary)")
+                           
                             self.movies = responseDictionary["results"] as? [NSDictionary]
                             self.MoviesTableView.reloadData()
                     }
