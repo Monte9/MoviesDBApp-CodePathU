@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		38EC3D8B72222898E22ECC6E /* Pods_Project1_FlickM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C3C5DE6640992807AD43A7C /* Pods_Project1_FlickM.framework */; };
 		FA849EC71C4DB96900FAA3F9 /* MovieInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA849EC61C4DB96900FAA3F9 /* MovieInfoViewController.swift */; };
+		FAAC88C91C4F44AE0079BD6F /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC88C81C4F44AE0079BD6F /* CollectionViewController.swift */; };
+		FAAC88CB1C4F45150079BD6F /* MoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC88CA1C4F45150079BD6F /* MoviesCollectionViewCell.swift */; };
 		FAFD9BA01C4B55E2004021BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD9B9F1C4B55E2004021BD /* AppDelegate.swift */; };
 		FAFD9BA51C4B55E2004021BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFD9BA31C4B55E2004021BD /* Main.storyboard */; };
 		FAFD9BA71C4B55E2004021BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFD9BA61C4B55E2004021BD /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 		5C3C5DE6640992807AD43A7C /* Pods_Project1_FlickM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project1_FlickM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E7EF69E4F16340491FABC55 /* Pods-Project1-FlickM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project1-FlickM.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project1-FlickM/Pods-Project1-FlickM.release.xcconfig"; sourceTree = "<group>"; };
 		FA849EC61C4DB96900FAA3F9 /* MovieInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieInfoViewController.swift; sourceTree = "<group>"; };
+		FAAC88C81C4F44AE0079BD6F /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		FAAC88CA1C4F45150079BD6F /* MoviesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAFD9B9C1C4B55E2004021BD /* Project1-FlickM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project1-FlickM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFD9B9F1C4B55E2004021BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAFD9BA41C4B55E2004021BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 				FAFD9BD41C4B7C05004021BD /* Controller */,
 				FAFD9BD11C4B6EF2004021BD /* Views */,
 				FAFD9BA31C4B55E2004021BD /* Main.storyboard */,
+				FAFD9BB11C4B57B5004021BD /* MoviesController.swift */,
 				FAFD9BA61C4B55E2004021BD /* Assets.xcassets */,
 				FAFD9BA81C4B55E2004021BD /* LaunchScreen.storyboard */,
 				FAFD9BAB1C4B55E2004021BD /* Info.plist */,
@@ -96,6 +101,7 @@
 		FAFD9BD11C4B6EF2004021BD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FAAC88CA1C4F45150079BD6F /* MoviesCollectionViewCell.swift */,
 				FAFD9BD21C4B6F1B004021BD /* MovieCell.swift */,
 			);
 			name = Views;
@@ -104,7 +110,7 @@
 		FAFD9BD41C4B7C05004021BD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FAFD9BB11C4B57B5004021BD /* MoviesController.swift */,
+				FAAC88C81C4F44AE0079BD6F /* CollectionViewController.swift */,
 				FA849EC61C4DB96900FAA3F9 /* MovieInfoViewController.swift */,
 			);
 			name = Controller;
@@ -235,7 +241,9 @@
 				FAFD9BB21C4B57B5004021BD /* MoviesController.swift in Sources */,
 				FAFD9BA01C4B55E2004021BD /* AppDelegate.swift in Sources */,
 				FAFD9BD31C4B6F1B004021BD /* MovieCell.swift in Sources */,
+				FAAC88CB1C4F45150079BD6F /* MoviesCollectionViewCell.swift in Sources */,
 				FA849EC71C4DB96900FAA3F9 /* MovieInfoViewController.swift in Sources */,
+				FAAC88C91C4F44AE0079BD6F /* CollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

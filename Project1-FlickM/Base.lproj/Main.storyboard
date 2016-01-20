@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="SIP-YA-8f8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bG7-jM-D80">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -19,7 +19,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="141" id="gyR-1p-JJ2" customClass="MovieCell" customModule="Project1_FlickM" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="320" height="141"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="MovieCell" tableViewCell="gyR-1p-JJ2" id="b3g-zb-UWJ">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="140"/>
@@ -49,7 +49,6 @@
                                             <outlet property="overviewLabel" destination="xQx-im-4y2" id="u6q-zD-9qz"/>
                                             <outlet property="posterImage" destination="JQg-po-8X6" id="9d3-VY-FHL"/>
                                             <outlet property="titleLabel" destination="BuL-7x-YTe" id="5tV-LU-Vqu"/>
-                                            <segue destination="LLa-ou-KvW" kind="push" id="9PQ-Jx-YHZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -119,12 +118,63 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A9z-uz-UYj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1143" y="308"/>
+            <point key="canvasLocation" x="1303" y="-315"/>
+        </scene>
+        <!--Movies-->
+        <scene sceneID="55b-Hq-qsS">
+            <objects>
+                <viewController id="HoM-qr-0h6" customClass="CollectionViewController" customModule="Project1_FlickM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Ci-xv-NaH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="lXV-Eb-w9G">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U3b-i2-yK9">
+                                    <size key="itemSize" width="152" height="196"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MoviesCollectionViewCell" id="Lej-Ib-Ogx" customClass="MoviesCollectionViewCell" customModule="Project1_FlickM" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="64" width="152" height="196"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="152" height="196"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="5v1-i3-Kyp">
+                                                    <rect key="frame" x="0.0" y="0.0" width="152" height="196"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="posterImageView" destination="5v1-i3-Kyp" id="YLP-KH-Jxm"/>
+                                            <segue destination="LLa-ou-KvW" kind="push" id="muY-eF-fdk"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Movies" id="3du-oX-eka"/>
+                    <connections>
+                        <outlet property="collectionView" destination="lXV-Eb-w9G" id="RzH-WJ-46V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gQq-bm-umV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="830" y="-315"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ncc-MM-BsL">
             <objects>
-                <navigationController storyboardIdentifier="MoviesNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="SIP-YA-8f8" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SIP-YA-8f8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GI7-ua-Qmu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -138,6 +188,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p2R-K2-2U4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="219" y="308"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gSR-0M-4Mw">
+            <objects>
+                <navigationController storyboardIdentifier="MoviesNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="bG7-jM-D80" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3cG-hJ-Hak">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HoM-qr-0h6" kind="relationship" relationship="rootViewController" id="QI0-ua-r2O"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="huQ-Eg-85K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="298" y="-315"/>
         </scene>
     </scenes>
 </document>
