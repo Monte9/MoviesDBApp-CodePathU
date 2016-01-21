@@ -10,15 +10,15 @@ import UIKit
 import AFNetworking
 import MBProgressHUD
 
-extension CollectionViewController: UICollectionViewDataSource {
+extension CollectionViewController: UICollectionViewDataSource, UISearchBarDelegate {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies?.count ?? 0
+        return searchedMovies?.count ?? 0
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MoviesCollectionViewCell", forIndexPath: indexPath) as! MoviesCollectionViewCell
         
-        let movie = movies![indexPath.row]
+        let movie = searchedMovies![indexPath.row]
         
         let baseImageURL = "http://image.tmdb.org/t/p/w500/"
         let imagePath = movie["poster_path"] as! String
@@ -35,10 +35,11 @@ class CollectionViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var movies: [NSDictionary]?
-    
     var endPoint : String!
+    var searchedMovies : [NSDictionary]!
     
     
     override func viewDidLoad() {
@@ -56,6 +57,9 @@ class CollectionViewController: UIViewController {
         
         //Call the endpoint to get all the movies
         makeAPICall()
+        
+        searchBar.delegate = self
+        
     }
     
     func makeAPICall() {
@@ -75,6 +79,7 @@ class CollectionViewController: UIViewController {
                         data, options:[]) as? NSDictionary {
                             
                             self.movies = responseDictionary["results"] as? [NSDictionary]
+                            self.searchedMovies = self.movies
                             self.collectionView.reloadData()
                     }
                 }
@@ -83,6 +88,13 @@ class CollectionViewController: UIViewController {
                  MBProgressHUD.hideHUDForView(self.view, animated: true)
         });
         task.resume()
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        searchedMovies = searchText.isEmpty ? movies : movies!.filter({(movie: NSDictionary) -> Bool in
+            return (movie["title"] as! String).rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil
+        })
+        collectionView.reloadData()
     }
 
     
@@ -99,7 +111,7 @@ class CollectionViewController: UIViewController {
         makeAPICall()
         
         // Do the following when the network request comes back successfully:
-        // Update tableView data source
+        // Update collectionView data source
         self.collectionView.reloadData()
         refreshControl.endRefreshing()
     }
@@ -114,7 +126,7 @@ class CollectionViewController: UIViewController {
         
         let cell = sender as! UICollectionViewCell
         let indexPath = collectionView.indexPathForCell(cell)
-        let movie = movies![indexPath!.row]
+        let movie = searchedMovies![indexPath!.row]
         
         let detailViewController = segue.destinationViewController as! MovieInfoViewController
         

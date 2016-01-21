@@ -17,9 +17,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="mwQ-On-T5r">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="141" id="gyR-1p-JJ2" customClass="MovieCell" customModule="Project1_FlickM" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="141"/>
+                                        <rect key="frame" x="0.0" y="72" width="320" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="MovieCell" tableViewCell="gyR-1p-JJ2" id="b3g-zb-UWJ">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="140"/>
@@ -63,7 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="751" y="308"/>
+            <point key="canvasLocation" x="552" y="519"/>
         </scene>
         <!--Movie Info View Controller-->
         <scene sceneID="4SK-Lc-bTK">
@@ -123,30 +128,31 @@
         <!--Movies-->
         <scene sceneID="55b-Hq-qsS">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gQq-bm-umV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="HoM-qr-0h6" customClass="CollectionViewController" customModule="Project1_FlickM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Ci-xv-NaH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="lXV-Eb-w9G">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U3b-i2-yK9">
-                                    <size key="itemSize" width="152" height="196"/>
+                                    <size key="itemSize" width="152" height="188"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MoviesCollectionViewCell" id="Lej-Ib-Ogx" customClass="MoviesCollectionViewCell" customModule="Project1_FlickM" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="152" height="196"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" reuseIdentifier="MoviesCollectionViewCell" id="Lej-Ib-Ogx" customClass="MoviesCollectionViewCell" customModule="Project1_FlickM" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="64" width="152" height="188"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="152" height="196"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="152" height="188"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="5v1-i3-Kyp">
-                                                    <rect key="frame" x="0.0" y="0.0" width="152" height="196"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="152" height="188"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -159,35 +165,22 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <searchBar contentMode="redraw" placeholder="Enter search term" id="fqf-C1-OJu">
+                                <rect key="frame" x="0.0" y="65" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movies" id="3du-oX-eka"/>
                     <connections>
                         <outlet property="collectionView" destination="lXV-Eb-w9G" id="RzH-WJ-46V"/>
+                        <outlet property="searchBar" destination="fqf-C1-OJu" id="fiD-PR-ow2"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gQq-bm-umV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="830" y="-315"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Ncc-MM-BsL">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SIP-YA-8f8" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GI7-ua-Qmu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="da2-zd-B8E"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="p2R-K2-2U4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="219" y="308"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gSR-0M-4Mw">
