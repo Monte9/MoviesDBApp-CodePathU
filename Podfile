@@ -9,5 +9,7 @@ target 'Project1-FlickM' do
 	
 	pod 'MBProgressHUD'
 
+	pod 'ReachabilitySwift', :git => 'https://github.com/ashleymills/Reachability.swift'
+
 end
 

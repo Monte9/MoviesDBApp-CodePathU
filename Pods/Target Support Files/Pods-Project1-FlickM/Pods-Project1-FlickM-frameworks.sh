@@ -86,8 +86,10 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Project1-FlickM/AFNetworking.framework"
   install_framework "Pods-Project1-FlickM/MBProgressHUD.framework"
+  install_framework "Pods-Project1-FlickM/ReachabilitySwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Project1-FlickM/AFNetworking.framework"
   install_framework "Pods-Project1-FlickM/MBProgressHUD.framework"
+  install_framework "Pods-Project1-FlickM/ReachabilitySwift.framework"
 fi

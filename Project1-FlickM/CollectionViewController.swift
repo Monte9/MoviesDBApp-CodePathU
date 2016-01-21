@@ -9,6 +9,9 @@
 import UIKit
 import AFNetworking
 import MBProgressHUD
+import Foundation
+import SystemConfiguration
+import ReachabilitySwift
 
 extension CollectionViewController: UICollectionViewDataSource, UISearchBarDelegate {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -30,12 +33,18 @@ extension CollectionViewController: UICollectionViewDataSource, UISearchBarDeleg
     }
 }
 
-
 class CollectionViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var searchBar: UISearchBar!
+    
+    @IBOutlet weak var networkView: UIView!
+    
+    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var countButton: UIButton!
+    
+    var count = 0
     
     var movies: [NSDictionary]?
     var endPoint : String!
@@ -47,20 +56,65 @@ class CollectionViewController: UIViewController {
 
         collectionView.dataSource = self
         
+        searchBar.delegate = self
+        searchBar.barTintColor = UIColor.blackColor()
+ 
+      //  UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
         // Initialize a UIRefreshControl
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
         collectionView.insertSubview(refreshControl, atIndex: 0)
         
-        // Display HUD right before next request is made
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        
-        //Call the endpoint to get all the movies
-        makeAPICall()
-        
-        searchBar.delegate = self
-        
+        //check for reachability- is there internet or not?
+        let reachability = try! Reachability.reachabilityForInternetConnection()
+        if reachability.currentReachabilityStatus == .NotReachable {
+            collectionView.hidden = true
+            searchBar.hidden = true
+            networkView.hidden = false
+            
+            countButton.layer.cornerRadius = 50
+        } else {
+            networkView.hidden = true
+            countButton.hidden = true
+            countLabel.hidden = true
+            // Display HUD right before next request is made
+            MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            
+            //Call the endpoint to get all the movies
+            makeAPICall()
+        }
     }
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        self.searchedMovies = self.movies
+        self.collectionView.reloadData()
+    }
+    
+    
+    @IBAction func countButtonPressed(sender: AnyObject) {
+        
+        
+        if (count == 18) {
+            countLabel.text = String("M")
+        }
+        else {
+            countLabel.text = "."
+            ++count
+            countLabel.text = String(count)
+        }
+
+        
+    
+    }
+    
     
     func makeAPICall() {
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
@@ -83,6 +137,14 @@ class CollectionViewController: UIViewController {
                             self.collectionView.reloadData()
                     }
                 }
+                else if (error !=  nil) {
+                    print("error")
+                    self.collectionView.hidden = true
+                    self.searchBar.hidden = true
+                    self.networkView.hidden = false
+                    
+                    self.countButton.layer.cornerRadius = 50
+                }
                 
                 // Hide HUD once network request comes back (must be done on main UI thread)
                  MBProgressHUD.hideHUDForView(self.view, animated: true)
@@ -96,8 +158,6 @@ class CollectionViewController: UIViewController {
         })
         collectionView.reloadData()
     }
-
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
