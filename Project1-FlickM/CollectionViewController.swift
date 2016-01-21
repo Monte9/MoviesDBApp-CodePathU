@@ -131,23 +131,27 @@ class CollectionViewController: UIViewController {
                 if let data = dataOrNil {
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
                         data, options:[]) as? NSDictionary {
-                            
-                            self.movies = responseDictionary["results"] as? [NSDictionary]
-                            self.searchedMovies = self.movies
-                            self.collectionView.reloadData()
+                            if (responseDictionary["status_code"] == nil ) {
+                                
+                                self.movies = responseDictionary["results"] as? [NSDictionary]
+                                self.searchedMovies = self.movies
+                                self.collectionView.reloadData()
+                                print("Connection to API successful!")
+                                
+                            }
+                            else {
+                                print("error")
+                                self.collectionView.hidden = true
+                                self.searchBar.hidden = true
+                                self.networkView.hidden = false
+                                self.countButton.hidden = false
+                                self.countLabel.hidden = false
+                                self.countButton.layer.cornerRadius = 50
+                            }
+                            // Hide HUD once network request comes back (must be done on main UI thread)
+                            MBProgressHUD.hideHUDForView(self.view, animated: true)
                     }
                 }
-                else if (error !=  nil) {
-                    print("error")
-                    self.collectionView.hidden = true
-                    self.searchBar.hidden = true
-                    self.networkView.hidden = false
-                    
-                    self.countButton.layer.cornerRadius = 50
-                }
-                
-                // Hide HUD once network request comes back (must be done on main UI thread)
-                 MBProgressHUD.hideHUDForView(self.view, animated: true)
         });
         task.resume()
     }
