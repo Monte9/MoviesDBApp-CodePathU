@@ -27,13 +27,20 @@ extension CollectionViewController: UICollectionViewDataSource, UISearchBarDeleg
         let imagePath = movie["poster_path"] as! String
         let imageURL = NSURL(string: baseImageURL + imagePath)
         
+        cell.titleLabel.text = movie["title"] as? String
+        cell.overviewLabel.text = movie["overview"] as? String
+        cell.overviewLabel.sizeToFit()
+
         cell.posterImageView.setImageWithURL(imageURL!)
+        
+        cell.scrollView.contentSize = CGSize(width: 321, height: 650)
+        
         
         return cell
     }
 }
 
-class CollectionViewController: UIViewController {
+class CollectionViewController: UIViewController, UIScrollViewDelegate{
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -56,10 +63,11 @@ class CollectionViewController: UIViewController {
 
         collectionView.dataSource = self
         
+        
         searchBar.delegate = self
         searchBar.barTintColor = UIColor.blackColor()
  
-      //  UIApplication.sharedApplication().statusBarStyle = .LightContent
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
         
         // Initialize a UIRefreshControl
         let refreshControl = UIRefreshControl()
@@ -100,8 +108,6 @@ class CollectionViewController: UIViewController {
     
     
     @IBAction func countButtonPressed(sender: AnyObject) {
-        
-        
         if (count == 18) {
             countLabel.text = String("M")
         }
@@ -110,9 +116,6 @@ class CollectionViewController: UIViewController {
             ++count
             countLabel.text = String(count)
         }
-
-        
-    
     }
     
     
@@ -185,18 +188,18 @@ class CollectionViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using
-        
-        let cell = sender as! UICollectionViewCell
-        let indexPath = collectionView.indexPathForCell(cell)
-        let movie = searchedMovies![indexPath!.row]
-        
-        let detailViewController = segue.destinationViewController as! MovieInfoViewController
-        
-        detailViewController.movie = movie
-
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        // Get the new view controller using
+//        
+//        let cell = sender as! UICollectionViewCell
+//        let indexPath = collectionView.indexPathForCell(cell)
+//        let movie = searchedMovies![indexPath!.row]
+//        
+//        let detailViewController = segue.destinationViewController as! MovieInfoViewController
+//        
+//        detailViewController.movie = movie
+//
+//    }
     
 
 }

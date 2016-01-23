@@ -68,6 +68,7 @@
 		FA6B58CE1C50644900C03FCD /* Extras */ = {
 			isa = PBXGroup;
 			children = (
+				FAFD9BD21C4B6F1B004021BD /* MovieCell.swift */,
 				FAFD9BB11C4B57B5004021BD /* MoviesController.swift */,
 			);
 			name = Extras;
@@ -110,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				FAAC88CA1C4F45150079BD6F /* MoviesCollectionViewCell.swift */,
-				FAFD9BD21C4B6F1B004021BD /* MovieCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";

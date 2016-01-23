@@ -12,4 +12,9 @@ class MoviesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var posterImageView: UIImageView!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var overviewLabel: UILabel!
+    
+    @IBOutlet weak var titleLabel: UILabel!
 }
