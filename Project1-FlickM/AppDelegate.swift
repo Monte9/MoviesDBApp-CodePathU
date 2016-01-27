@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         nowPlayingNavigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.redColor()]
         
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
+     //   UIApplication.sharedApplication().statusBarStyle = .LightContent
         
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         
@@ -42,8 +42,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         topRatedNavigationController.navigationBar.barTintColor = UIColor.blackColor()
         topRatedNavigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.redColor()]
         
+        
+        let popularNavigationController = storyboard.instantiateViewControllerWithIdentifier("MoviesNavigationController") as! UINavigationController
+        let popularViewController = popularNavigationController.topViewController as! CollectionViewController
+        
+        popularViewController.endPoint = "popular"
+        popularNavigationController.tabBarItem.title = "Popular"
+        popularNavigationController.tabBarItem.image = UIImage(named: "popular")
+        popularNavigationController.navigationBar.barTintColor = UIColor.blackColor()
+        popularNavigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.redColor()]
+        
+        let upcomingNavigationController = storyboard.instantiateViewControllerWithIdentifier("MoviesNavigationController") as! UINavigationController
+        let upcomingViewController = upcomingNavigationController.topViewController as! CollectionViewController
+        
+        upcomingViewController.endPoint = "upcoming"
+        upcomingNavigationController.tabBarItem.title = "Upcoming"
+        upcomingNavigationController.tabBarItem.image = UIImage(named: "upcoming")
+        upcomingNavigationController.navigationBar.barTintColor = UIColor.whiteColor()
+        topRatedNavigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.redColor()]
+        
+        
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [nowPlayingNavigationController, topRatedNavigationController]
+        tabBarController.viewControllers = [nowPlayingNavigationController, topRatedNavigationController, upcomingNavigationController, popularNavigationController]
         UITabBar.appearance().tintColor = UIColor.redColor()
         UITabBar.appearance().barTintColor = UIColor.blackColor()
         

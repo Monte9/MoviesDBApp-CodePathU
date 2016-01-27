@@ -23,17 +23,30 @@ extension CollectionViewController: UICollectionViewDataSource, UISearchBarDeleg
         
         let movie = searchedMovies![indexPath.row]
         
+//        print(movie["id"])
+//       // print(movie["poster_path"])
+//        endPoint = String(movie["id"])
+//        makeAPICall()
+        
         let baseImageURL = "http://image.tmdb.org/t/p/w500/"
-        let imagePath = movie["poster_path"] as! String
-        let imageURL = NSURL(string: baseImageURL + imagePath)
         
-        cell.titleLabel.text = movie["title"] as? String
-        cell.overviewLabel.text = movie["overview"] as? String
-        cell.overviewLabel.sizeToFit()
-
-        cell.posterImageView.setImageWithURL(imageURL!)
+        if let imageBGPath = movie["backdrop_path"] as? String {
+           let imageBGURL = NSURL(string: baseImageURL + imageBGPath)
+            cell.backgroundImageView.setImageWithURL(imageBGURL!)
+        } else {
+            cell.backgroundImageView.image = UIImage(named: "black")
+        }
         
-        cell.scrollView.contentSize = CGSize(width: 321, height: 650)
+        if let imagePosterPath = movie["poster_path"] as? String {
+            let imagePosterURL = NSURL(string: baseImageURL + imagePosterPath)
+            cell.posterImageView.setImageWithURL(imagePosterURL!)
+        } else {
+            cell.posterImageView.image = UIImage(named: "black")
+        }
+        
+        cell.movieTitleLabel.text = movie["title"] as? String
+        cell.movieTitleLabel.sizeToFit()
+        
         
         
         return cell
@@ -141,6 +154,8 @@ class CollectionViewController: UIViewController, UIScrollViewDelegate{
                                 self.collectionView.reloadData()
                                 print("Connection to API successful!")
                                 
+                                print(self.searchedMovies)
+                                
                             }
                             else {
                                 print("error")
@@ -188,18 +203,20 @@ class CollectionViewController: UIViewController, UIScrollViewDelegate{
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        // Get the new view controller using
-//        
-//        let cell = sender as! UICollectionViewCell
-//        let indexPath = collectionView.indexPathForCell(cell)
-//        let movie = searchedMovies![indexPath!.row]
-//        
-//        let detailViewController = segue.destinationViewController as! MovieInfoViewController
-//        
-//        detailViewController.movie = movie
-//
-//    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using
+        
+        let cell = sender as! UICollectionViewCell
+        let indexPath = collectionView.indexPathForCell(cell)
+        let movie = searchedMovies![indexPath!.row]
+        
+        let detailViewController = segue.destinationViewController as! MovieInfoViewController
+        
+        print("segue here")
+        
+        detailViewController.movie = movie
+
+    }
     
 
 }
