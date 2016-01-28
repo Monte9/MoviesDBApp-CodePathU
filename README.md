@@ -23,6 +23,7 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [x] Added a custom scroll view inside a Collection View
+- [x] Additional movie information displayed
 
 ## Video Walkthrough 
 
