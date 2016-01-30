@@ -23,11 +23,6 @@ extension CollectionViewController: UICollectionViewDataSource, UISearchBarDeleg
         
         let movie = searchedMovies![indexPath.row]
         
-//        print(movie["id"])
-//       // print(movie["poster_path"])
-//        endPoint = String(movie["id"])
-//        makeAPICall()
-        
         let baseImageURL = "http://image.tmdb.org/t/p/w500/"
         
         if let imageBGPath = movie["backdrop_path"] as? String {
@@ -45,13 +40,14 @@ extension CollectionViewController: UICollectionViewDataSource, UISearchBarDeleg
         }
         
         cell.movieTitleLabel.text = movie["title"] as? String
-        cell.movieTitleLabel.sizeToFit()
-        
+        cell.popularLabel.text = String(movie["popularity"] as! Int * 10) +  " %"
+        cell.ratingLabel.text = String(movie["vote_average"] as! Int) + "/10"
         
         
         return cell
     }
 }
+
 
 class CollectionViewController: UIViewController, UIScrollViewDelegate{
 
@@ -80,7 +76,7 @@ class CollectionViewController: UIViewController, UIScrollViewDelegate{
         searchBar.delegate = self
         searchBar.barTintColor = UIColor.blackColor()
  
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
+    
         
         // Initialize a UIRefreshControl
         let refreshControl = UIRefreshControl()
@@ -154,7 +150,7 @@ class CollectionViewController: UIViewController, UIScrollViewDelegate{
                                 self.collectionView.reloadData()
                                 print("Connection to API successful!")
                                 
-                                print(self.searchedMovies)
+                             //   print(self.searchedMovies)
                                 
                             }
                             else {
@@ -201,18 +197,13 @@ class CollectionViewController: UIViewController, UIScrollViewDelegate{
 
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using
-        
+    
         let cell = sender as! UICollectionViewCell
         let indexPath = collectionView.indexPathForCell(cell)
         let movie = searchedMovies![indexPath!.row]
         
         let detailViewController = segue.destinationViewController as! MovieInfoViewController
-        
-        print("segue here")
         
         detailViewController.movie = movie
 

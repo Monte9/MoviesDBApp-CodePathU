@@ -11,6 +11,8 @@
 		FA849EC71C4DB96900FAA3F9 /* MovieInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA849EC61C4DB96900FAA3F9 /* MovieInfoViewController.swift */; };
 		FAAC88C91C4F44AE0079BD6F /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC88C81C4F44AE0079BD6F /* CollectionViewController.swift */; };
 		FAAC88CB1C4F45150079BD6F /* MoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC88CA1C4F45150079BD6F /* MoviesCollectionViewCell.swift */; };
+		FAD7BA881C5CA26B00795507 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7BA871C5CA26B00795507 /* APIClient.swift */; };
+		FAD7BA8B1C5CA82600795507 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7BA8A1C5CA82600795507 /* Movie.swift */; };
 		FAFD9BA01C4B55E2004021BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD9B9F1C4B55E2004021BD /* AppDelegate.swift */; };
 		FAFD9BA51C4B55E2004021BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFD9BA31C4B55E2004021BD /* Main.storyboard */; };
 		FAFD9BA71C4B55E2004021BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFD9BA61C4B55E2004021BD /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 		FA849EC61C4DB96900FAA3F9 /* MovieInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieInfoViewController.swift; sourceTree = "<group>"; };
 		FAAC88C81C4F44AE0079BD6F /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		FAAC88CA1C4F45150079BD6F /* MoviesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewCell.swift; sourceTree = "<group>"; };
+		FAD7BA871C5CA26B00795507 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		FAD7BA8A1C5CA82600795507 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		FAFD9B9C1C4B55E2004021BD /* Project1-FlickM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project1-FlickM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFD9B9F1C4B55E2004021BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAFD9BA41C4B55E2004021BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -74,6 +78,15 @@
 			name = Extras;
 			sourceTree = "<group>";
 		};
+		FAD7BA891C5CA80900795507 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAD7BA871C5CA26B00795507 /* APIClient.swift */,
+				FAD7BA8A1C5CA82600795507 /* Movie.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		FAFD9B931C4B55E2004021BD = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				FAFD9B9F1C4B55E2004021BD /* AppDelegate.swift */,
+				FAD7BA891C5CA80900795507 /* Model */,
 				FAFD9BD41C4B7C05004021BD /* Controller */,
 				FAFD9BD11C4B6EF2004021BD /* Views */,
 				FAFD9BA31C4B55E2004021BD /* Main.storyboard */,
@@ -247,10 +261,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAFD9BB21C4B57B5004021BD /* MoviesController.swift in Sources */,
+				FAD7BA881C5CA26B00795507 /* APIClient.swift in Sources */,
 				FAFD9BA01C4B55E2004021BD /* AppDelegate.swift in Sources */,
 				FAFD9BD31C4B6F1B004021BD /* MovieCell.swift in Sources */,
 				FAAC88CB1C4F45150079BD6F /* MoviesCollectionViewCell.swift in Sources */,
 				FA849EC71C4DB96900FAA3F9 /* MovieInfoViewController.swift in Sources */,
+				FAD7BA8B1C5CA82600795507 /* Movie.swift in Sources */,
 				FAAC88C91C4F44AE0079BD6F /* CollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
