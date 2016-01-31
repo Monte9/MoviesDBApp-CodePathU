@@ -17,6 +17,7 @@ class MovieInfoViewController: UIViewController {
     
     var movie : NSDictionary!
     var detailMovie : NSDictionary!
+    var similarMovies : [NSDictionary]!
     var movieID : Int!
     
     @IBOutlet weak var genreLabel: UILabel!
@@ -36,7 +37,7 @@ class MovieInfoViewController: UIViewController {
         
         scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: 800)
             //infoView.frame.origin.y + infoView.frame.size.height)
-
+    
         movieID = movie["id"] as! Int
         print(movieID)
         
@@ -67,7 +68,8 @@ class MovieInfoViewController: UIViewController {
                                 
                                 self.detailMovie = responseDictionary
                                 print("Connection to API successful! here....")
-                                print(self.detailMovie)
+                               // print(self.detailMovie)
+                                self.getSimilarMovies()
                             
                                 //set all the labels
                                 
@@ -91,6 +93,8 @@ class MovieInfoViewController: UIViewController {
                                     let imageURL = NSURL(string: baseImageURL + imagePath)
                                     self.posterImageView.setImageWithURL(imageURL!)
                                 }
+                                
+                            
 
                                 
                             }
@@ -105,6 +109,46 @@ class MovieInfoViewController: UIViewController {
         task.resume()
         
     }
+    
+    func getSimilarMovies() {
+        let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
+        let url = NSURL(string:"https://api.themoviedb.org/3/movie/\(movieID)/similar?api_key=\(apiKey)")
+        let request = NSURLRequest(URL: url!)
+        let session = NSURLSession(
+            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
+            delegate:nil,
+            delegateQueue:NSOperationQueue.mainQueue()
+        )
+        
+        let task : NSURLSessionDataTask = session.dataTaskWithRequest(request,
+            completionHandler: { (dataOrNil, response, error) in
+                if let data = dataOrNil {
+                    if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
+                        data, options:[]) as? NSDictionary {
+                            if (responseDictionary["status_code"] == nil ) {
+                                
+                                self.similarMovies = responseDictionary["results"] as? [NSDictionary]
+                                print("Similar movies get successful!")
+                                
+                                //   print(self.searchedMovies)
+                                
+                                print(self.similarMovies)
+                                
+                            }
+                            else {
+                                print("error")
+                               
+                            }
+                            // Hide HUD once network request comes back (must be done on main UI thread)
+                            MBProgressHUD.hideHUDForView(self.view, animated: true)
+                    }
+                }
+        });
+        task.resume()
+    }
+
+    
+    
 
     /*
     // MARK: - Navigation

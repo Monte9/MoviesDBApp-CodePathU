@@ -170,6 +170,7 @@ class CollectionViewController: UIViewController, UIScrollViewDelegate{
         task.resume()
     }
     
+    
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         searchedMovies = searchText.isEmpty ? movies : movies!.filter({(movie: NSDictionary) -> Bool in
             return (movie["title"] as! String).rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil
