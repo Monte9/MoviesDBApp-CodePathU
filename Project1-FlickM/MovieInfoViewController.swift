@@ -39,7 +39,7 @@ class MovieInfoViewController: UIViewController {
             //infoView.frame.origin.y + infoView.frame.size.height)
     
         movieID = movie["id"] as! Int
-        print(movieID)
+       // print(movieID)
         
         getMovieInfo()
     }

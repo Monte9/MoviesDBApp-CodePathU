@@ -62,6 +62,10 @@ class CollectionViewController: UIViewController, UIScrollViewDelegate{
     
     var count = 0
     
+    var genre = false
+    
+    var genreID: Int!
+    var genreName: String!
     var movies: [NSDictionary]?
     var endPoint : String!
     var searchedMovies : [NSDictionary]!
@@ -98,8 +102,17 @@ class CollectionViewController: UIViewController, UIScrollViewDelegate{
             // Display HUD right before next request is made
             MBProgressHUD.showHUDAddedTo(self.view, animated: true)
             
+            
+            if (genre != true) {
             //Call the endpoint to get all the movies
             makeAPICall()
+            }
+            else {
+                
+                print(genreName)
+                makeGenreAPICall()
+            
+            }
         }
     }
     
@@ -125,6 +138,48 @@ class CollectionViewController: UIViewController, UIScrollViewDelegate{
             ++count
             countLabel.text = String(count)
         }
+    }
+    
+    func makeGenreAPICall() {
+        let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
+        let url = NSURL(string:"https://api.themoviedb.org/3/genre/\(genreID!)/movies?api_key=\(apiKey)")
+        let request = NSURLRequest(URL: url!)
+        let session = NSURLSession(
+            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
+            delegate:nil,
+            delegateQueue:NSOperationQueue.mainQueue()
+        )
+        
+        let task : NSURLSessionDataTask = session.dataTaskWithRequest(request,
+            completionHandler: { (dataOrNil, response, error) in
+                if let data = dataOrNil {
+                    if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
+                        data, options:[]) as? NSDictionary {
+                            if (responseDictionary["status_code"] == nil ) {
+                                
+                                self.movies = responseDictionary["results"] as? [NSDictionary]
+                                self.searchedMovies = self.movies
+                                self.collectionView.reloadData()
+                                print("Connection to API successful!")
+                                
+                                //   print(self.searchedMovies)
+                                
+                            }
+                            else {
+                                print("error")
+                                self.collectionView.hidden = true
+                                self.searchBar.hidden = true
+                                self.networkView.hidden = false
+                                self.countButton.hidden = false
+                                self.countLabel.hidden = false
+                                self.countButton.layer.cornerRadius = 50
+                            }
+                            // Hide HUD once network request comes back (must be done on main UI thread)
+                            MBProgressHUD.hideHUDForView(self.view, animated: true)
+                    }
+                }
+        });
+        task.resume()
     }
     
     

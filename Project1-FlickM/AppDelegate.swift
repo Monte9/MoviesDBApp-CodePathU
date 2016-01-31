@@ -78,12 +78,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         //Upcoming tab bar button 4
+        let genreNavigationController = storyboard.instantiateViewControllerWithIdentifier("GenreNavigationController") as! UINavigationController
+        let genreViewController = genreNavigationController.topViewController as! GenreViewController
+        
+     //   upcomingViewController.endPoint = "upcoming"
+        genreNavigationController.tabBarItem.title = "Genres"
+        genreNavigationController.tabBarItem.image = UIImage(named: "genreTabBar")
+
+        
+        //Customize Upcoming navigation bar UI
+        genreNavigationController.navigationBar.barTintColor = UIColor.blackColor()
+        genreNavigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.redColor()]
+        genreNavigationController.navigationBar.topItem?.title = "Browse Genres"
+        
+        
+        //Upcoming tab bar button 4
         let upcomingNavigationController = storyboard.instantiateViewControllerWithIdentifier("MoviesNavigationController") as! UINavigationController
         let upcomingViewController = upcomingNavigationController.topViewController as! CollectionViewController
         upcomingViewController.endPoint = "upcoming"
         upcomingNavigationController.tabBarItem.title = "Upcoming"
         upcomingNavigationController.tabBarItem.image = UIImage(named: "upcoming")
-
+        
         
         //Customize Upcoming navigation bar UI
         upcomingNavigationController.navigationBar.barTintColor = UIColor.blackColor()
@@ -93,9 +108,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
+        
         //setup tabbar controller - add tab bar buttons
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [popularNavigationController, topRatedNavigationController, nowPlayingNavigationController, upcomingNavigationController]
+        tabBarController.viewControllers = [popularNavigationController, topRatedNavigationController, genreNavigationController, nowPlayingNavigationController, upcomingNavigationController]
         UITabBar.appearance().tintColor = UIColor.redColor()
         UITabBar.appearance().barTintColor = UIColor.blackColor()
         

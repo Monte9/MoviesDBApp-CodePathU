@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		38EC3D8B72222898E22ECC6E /* Pods_Project1_FlickM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C3C5DE6640992807AD43A7C /* Pods_Project1_FlickM.framework */; };
+		FA00008D1C5DD411002C7ECF /* GenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA00008C1C5DD411002C7ECF /* GenreViewController.swift */; };
+		FA00008F1C5DD6FF002C7ECF /* GenresCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA00008E1C5DD6FF002C7ECF /* GenresCollectionViewCell.swift */; };
 		FA849EC71C4DB96900FAA3F9 /* MovieInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA849EC61C4DB96900FAA3F9 /* MovieInfoViewController.swift */; };
 		FAAC88C91C4F44AE0079BD6F /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC88C81C4F44AE0079BD6F /* CollectionViewController.swift */; };
 		FAAC88CB1C4F45150079BD6F /* MoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC88CA1C4F45150079BD6F /* MoviesCollectionViewCell.swift */; };
@@ -25,6 +27,8 @@
 		015FD6C9B898C0C0B5640AC0 /* Pods-Project1-FlickM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project1-FlickM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project1-FlickM/Pods-Project1-FlickM.debug.xcconfig"; sourceTree = "<group>"; };
 		5C3C5DE6640992807AD43A7C /* Pods_Project1_FlickM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project1_FlickM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E7EF69E4F16340491FABC55 /* Pods-Project1-FlickM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project1-FlickM.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project1-FlickM/Pods-Project1-FlickM.release.xcconfig"; sourceTree = "<group>"; };
+		FA00008C1C5DD411002C7ECF /* GenreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreViewController.swift; sourceTree = "<group>"; };
+		FA00008E1C5DD6FF002C7ECF /* GenresCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenresCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA849EC61C4DB96900FAA3F9 /* MovieInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieInfoViewController.swift; sourceTree = "<group>"; };
 		FAAC88C81C4F44AE0079BD6F /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		FAAC88CA1C4F45150079BD6F /* MoviesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				FAAC88CA1C4F45150079BD6F /* MoviesCollectionViewCell.swift */,
+				FA00008E1C5DD6FF002C7ECF /* GenresCollectionViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 			children = (
 				FAAC88C81C4F44AE0079BD6F /* CollectionViewController.swift */,
 				FA849EC61C4DB96900FAA3F9 /* MovieInfoViewController.swift */,
+				FA00008C1C5DD411002C7ECF /* GenreViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -267,6 +273,8 @@
 				FAAC88CB1C4F45150079BD6F /* MoviesCollectionViewCell.swift in Sources */,
 				FA849EC71C4DB96900FAA3F9 /* MovieInfoViewController.swift in Sources */,
 				FAD7BA8B1C5CA82600795507 /* Movie.swift in Sources */,
+				FA00008D1C5DD411002C7ECF /* GenreViewController.swift in Sources */,
+				FA00008F1C5DD6FF002C7ECF /* GenresCollectionViewCell.swift in Sources */,
 				FAAC88C91C4F44AE0079BD6F /* CollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
