@@ -1,7 +1,7 @@
 # Project1 - FlickM
 FlickM is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **6** hours spent in total
+Time spent: **10** hours spent in total
 
 ## User Stories
 
@@ -22,8 +22,10 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
+- [x] Added a splash screen & created custom app logo
 - [x] Added a custom scroll view inside a Collection View
 - [x] Additional movie information displayed
+
 
 ## Video Walkthrough 
 
@@ -82,7 +84,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![walkthrough](FlickM-final.gif)
+![walkthrough](FlickM- Final UI.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
