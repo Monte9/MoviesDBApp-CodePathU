@@ -84,8 +84,16 @@ class MovieInfoViewController: UIViewController {
                                 
                                 self.tagIineLabel.text = self.detailMovie["tagline"] as! String
                                 
-                              //  self.genreLabel.text = self.detailMovie["genres.name"] as? String
-                                print(self.detailMovie["genres"])
+                             
+                                var genres = self.detailMovie.valueForKeyPath("genres") as? [NSDictionary!]
+                                
+                                var genreList = ""
+                                for var genreDict in genres! {
+                                    genreList = genreList + String(genreDict["name"] as! String) + ", "
+                                }
+                                
+                                self.genreLabel.text = genreList
+                                
                                 
                                 let baseImageURL = "http://image.tmdb.org/t/p/w500/"
                                 
@@ -132,7 +140,7 @@ class MovieInfoViewController: UIViewController {
                                 
                                 //   print(self.searchedMovies)
                                 
-                                print(self.similarMovies)
+                              //  print(self.similarMovies)
                                 
                             }
                             else {

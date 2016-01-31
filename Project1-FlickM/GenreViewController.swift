@@ -12,7 +12,7 @@ import MBProgressHUD
 extension GenreViewController: UICollectionViewDataSource, UISearchBarDelegate {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("\(genres) nil?")
+      //  print("\(genres) nil?")
         return genres?.count ?? 0
     }
     
@@ -20,7 +20,7 @@ extension GenreViewController: UICollectionViewDataSource, UISearchBarDelegate {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("GenresCollectionViewCell", forIndexPath: indexPath) as! GenresCollectionViewCell
 
         let genre = genres![indexPath.row]
-        print("here\(genre)")
+      //  print("here\(genre)")
         
         cell.genreLabel.text = genre["name"] as! String
         
