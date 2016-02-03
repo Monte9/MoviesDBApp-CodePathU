@@ -13,9 +13,15 @@ import Foundation
 import SystemConfiguration
 import ReachabilitySwift
 
-extension CollectionViewController: UICollectionViewDataSource, UISearchBarDelegate {
+extension CollectionViewController: UICollectionViewDataSource, UISearchBarDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchedMovies?.count ?? 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let size = CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
+        
+        return size
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -75,7 +81,7 @@ class CollectionViewController: UIViewController, UIScrollViewDelegate{
         super.viewDidLoad()
 
         collectionView.dataSource = self
-        
+        collectionView.delegate = self
         
         searchBar.delegate = self
         searchBar.barTintColor = UIColor.blackColor()

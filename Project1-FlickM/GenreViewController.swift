@@ -9,12 +9,30 @@
 import UIKit
 import MBProgressHUD
 
-extension GenreViewController: UICollectionViewDataSource, UISearchBarDelegate {
+extension GenreViewController: UICollectionViewDataSource, UISearchBarDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
       //  print("\(genres) nil?")
         return genres?.count ?? 0
     }
+    
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//        let size = CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
+//        
+//        return size
+//    }
+
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        let left = collectionView.frame.size.width
+        print(left)
+        
+        print(left/2)
+        
+        let insetPosition = UIEdgeInsetsMake(0, left/2, 0, left/2)
+        
+        return insetPosition
+    }
+    
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("GenresCollectionViewCell", forIndexPath: indexPath) as! GenresCollectionViewCell
@@ -41,6 +59,7 @@ class GenreViewController: UIViewController {
         super.viewDidLoad()
 
         collectionView.dataSource = self
+        collectionView.delegate = self
         
         makeAPICall()
     }

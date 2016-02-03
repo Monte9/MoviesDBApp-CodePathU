@@ -32,10 +32,13 @@ class MovieInfoViewController: UIViewController {
     
     @IBOutlet weak var infoView: UIView!
     
+    @IBOutlet var parentView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: 800)
+    //    scrollView.contentSize = CGSize(width: parentView.frame.size.width, height: parentView.frame.size.height)
             //infoView.frame.origin.y + infoView.frame.size.height)
     
         movieID = movie["id"] as! Int
