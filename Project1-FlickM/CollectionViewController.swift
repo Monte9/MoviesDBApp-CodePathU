@@ -115,6 +115,7 @@ class CollectionViewController: UIViewController, UIScrollViewDelegate{
             }
         }
     }
+
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         self.searchBar.showsCancelButton = true

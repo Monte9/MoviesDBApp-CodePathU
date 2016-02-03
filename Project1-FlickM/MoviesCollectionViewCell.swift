@@ -19,4 +19,5 @@ class MoviesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     
     @IBOutlet weak var popularLabel: UILabel!
+
 }
