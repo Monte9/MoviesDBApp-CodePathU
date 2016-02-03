@@ -117,7 +117,8 @@ Challenges:
 
 1. I was unable to change the color of the status bar. I used this line in my AppDelegate.swift file: `UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent`
 2. I was having trouble accessing the Genres from the API. The genres were embedded inside two sets of arrays of Dictionaries and was really confusing. 
-3. 
+
+
 Learning Objectives:
 
 1. Collection Views are very versatile and can be used to present visually appealing content in different creative ways. 
