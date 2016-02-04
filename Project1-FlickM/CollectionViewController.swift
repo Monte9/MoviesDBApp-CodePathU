@@ -14,15 +14,17 @@ import SystemConfiguration
 import ReachabilitySwift
 
 extension CollectionViewController: UICollectionViewDataSource, UISearchBarDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return searchedMovies?.count ?? 0
-    }
-    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let size = CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
         
         return size
     }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return searchedMovies?.count ?? 0
+    }
+    
+    
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MoviesCollectionViewCell", forIndexPath: indexPath) as! MoviesCollectionViewCell
@@ -55,7 +57,7 @@ extension CollectionViewController: UICollectionViewDataSource, UISearchBarDeleg
 }
 
 
-class CollectionViewController: UIViewController, UIScrollViewDelegate{
+class CollectionViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegate{
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -76,12 +78,24 @@ class CollectionViewController: UIViewController, UIScrollViewDelegate{
     var endPoint : String!
     var searchedMovies : [NSDictionary]!
     
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        collectionView.reloadData()
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true;
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         collectionView.dataSource = self
         collectionView.delegate = self
+        
         
         searchBar.delegate = self
         searchBar.barTintColor = UIColor.blackColor()

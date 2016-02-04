@@ -103,7 +103,10 @@ class MovieInfoViewController: UIViewController {
                                 if let imagePath = self.detailMovie["backdrop_path"] as? String {
                                     let imageURL = NSURL(string: baseImageURL + imagePath)
                                     self.posterImageView.setImageWithURL(imageURL!)
+                                } else {
+                                    self.posterImageView.image = UIImage(named: "black")
                                 }
+
                                 
                             
 

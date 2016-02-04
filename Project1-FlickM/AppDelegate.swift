@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //   UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         
         
-        
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         
@@ -111,7 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //setup tabbar controller - add tab bar buttons
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [popularNavigationController, topRatedNavigationController, genreNavigationController, nowPlayingNavigationController, upcomingNavigationController]
+        tabBarController.viewControllers = [topRatedNavigationController, popularNavigationController, genreNavigationController, nowPlayingNavigationController, upcomingNavigationController]
         UITabBar.appearance().tintColor = UIColor.redColor()
         UITabBar.appearance().barTintColor = UIColor.blackColor()
         
