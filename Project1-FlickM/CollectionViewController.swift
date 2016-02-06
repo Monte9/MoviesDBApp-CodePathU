@@ -83,6 +83,8 @@ class CollectionViewController: UIViewController, UIScrollViewDelegate, UITextFi
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+
+        print(fromInterfaceOrientation)
         collectionView.reloadData()
     }
     

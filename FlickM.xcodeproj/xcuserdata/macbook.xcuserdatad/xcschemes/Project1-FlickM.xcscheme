@@ -17,7 +17,7 @@
                BlueprintIdentifier = "FAFD9B9B1C4B55E2004021BD"
                BuildableName = "Project1-FlickM.app"
                BlueprintName = "Project1-FlickM"
-               ReferencedContainer = "container:Project1-FlickM.xcodeproj">
+               ReferencedContainer = "container:FlickM.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
             BlueprintIdentifier = "FAFD9B9B1C4B55E2004021BD"
             BuildableName = "Project1-FlickM.app"
             BlueprintName = "Project1-FlickM"
-            ReferencedContainer = "container:Project1-FlickM.xcodeproj">
+            ReferencedContainer = "container:FlickM.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -58,7 +58,7 @@
             BlueprintIdentifier = "FAFD9B9B1C4B55E2004021BD"
             BuildableName = "Project1-FlickM.app"
             BlueprintName = "Project1-FlickM"
-            ReferencedContainer = "container:Project1-FlickM.xcodeproj">
+            ReferencedContainer = "container:FlickM.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -77,7 +77,7 @@
             BlueprintIdentifier = "FAFD9B9B1C4B55E2004021BD"
             BuildableName = "Project1-FlickM.app"
             BlueprintName = "Project1-FlickM"
-            ReferencedContainer = "container:Project1-FlickM.xcodeproj">
+            ReferencedContainer = "container:FlickM.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

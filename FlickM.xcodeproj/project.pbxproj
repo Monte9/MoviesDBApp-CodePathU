@@ -34,7 +34,7 @@
 		FAAC88CA1C4F45150079BD6F /* MoviesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAD7BA871C5CA26B00795507 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		FAD7BA8A1C5CA82600795507 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		FAFD9B9C1C4B55E2004021BD /* Project1-FlickM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project1-FlickM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAFD9B9C1C4B55E2004021BD /* FlickM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFD9B9F1C4B55E2004021BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAFD9BA41C4B55E2004021BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAFD9BA61C4B55E2004021BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 		FAFD9B9D1C4B55E2004021BD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FAFD9B9C1C4B55E2004021BD /* Project1-FlickM.app */,
+				FAFD9B9C1C4B55E2004021BD /* FlickM.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,7 +164,7 @@
 			);
 			name = "Project1-FlickM";
 			productName = "Project1-FlickM";
-			productReference = FAFD9B9C1C4B55E2004021BD /* Project1-FlickM.app */;
+			productReference = FAFD9B9C1C4B55E2004021BD /* FlickM.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -182,7 +182,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FAFD9B971C4B55E2004021BD /* Build configuration list for PBXProject "Project1-FlickM" */;
+			buildConfigurationList = FAFD9B971C4B55E2004021BD /* Build configuration list for PBXProject "FlickM" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -390,7 +390,7 @@
 				INFOPLIST_FILE = "Project1-FlickM/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.monteThakkar.Project1-FlickM";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FlickM;
 			};
 			name = Debug;
 		};
@@ -402,14 +402,14 @@
 				INFOPLIST_FILE = "Project1-FlickM/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.monteThakkar.Project1-FlickM";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FlickM;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FAFD9B971C4B55E2004021BD /* Build configuration list for PBXProject "Project1-FlickM" */ = {
+		FAFD9B971C4B55E2004021BD /* Build configuration list for PBXProject "FlickM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FAFD9BAC1C4B55E2004021BD /* Debug */,

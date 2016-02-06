@@ -101,6 +101,7 @@ The following **additional** features are implemented:
 - [x] App uses "Dark Mode" theme
 - [x] Added a custom game for users to play when network is down. 
 - [x] Added a splash screen & created custom app logo 
+- [x] Autolayout added for movie cells- supports 5s, 6s, 6s Plus
 
 
 ## Video Walkthrough 
