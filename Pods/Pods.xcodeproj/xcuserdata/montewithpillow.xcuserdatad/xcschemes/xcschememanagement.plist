@@ -8,31 +8,39 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>0</integer>
 		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>Pods-Project1-FlickM.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>ReachabilitySwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1C3436CEA5C3D39764C5F54374794ECB</key>
+		<key>0C8E1B854C8EAD6B566AF5553CDF7EF9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>366AEC93F7769929C1ABE9648467CEB6</key>
+		<key>1C3436CEA5C3D39764C5F54374794ECB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +50,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F40E439E3C7DF1365820741FD0ED4C3E</key>
+		<key>FE8D3BB234DB1C509BD2BF902CE8FCB4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
